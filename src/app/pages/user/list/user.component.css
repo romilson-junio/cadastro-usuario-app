@@ -1,0 +1,7 @@
+.register {
+  display: flex;
+  justify-content: end;
+}
+.btn-new {
+  padding: 12px 60px;
+}

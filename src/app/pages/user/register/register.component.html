@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row text-center mt-5">
+    <h1>Cadastro de Usuário</h1>
+  </div>
+  <div class="row mt-5">
+    <form class="form" [formGroup]="form" (ngSubmit)="send()">
+
+      <div class="p-fluid grid">
+        <div class="form-group col-12 field">
+          <label class="title" for="name">
+            <p-field-required [field]="'Nome'" [error]="this.name.invalid && this.name.dirty"/>
+          </label>
+          <input pInputText id="name" type="text" class="form-control" formControlName="name" minlength="3" maxlength="50"  [ngClass]="{'ng-invalid ng-dirty': this.name.invalid}"/>
+          <p-error
+            [error]="this.name.hasError('required') && this.name.dirty"
+            [message]="'Nome é obrigatório.'"></p-error>
+          <p-error
+            [error]="this.name.hasError('minlength') && this.name.dirty"
+            [message]="'Nome deve conter no mínimo 3 caracteres.'"></p-error>
+          <p-error
+            [error]="this.name.hasError('maxlength') && this.name.dirty"
+            [message]="'Nome deve conter no máximo 50 caracteres.'"></p-error>
+        </div>
+
+        <div class="form-group col-12 field">
+          <label class="title" for="email">
+            <p-field-required [field]="'E-mail'" [error]="this.email.invalid && this.email.dirty"/>
+          </label>
+          <input id="email" formControlName="email"
+            InputText type="email" class="form-control" placeholder="exemplo@exemplo.com"
+            [ngClass]="{'ng-invalid ng-dirty': this.email.invalid}"/>
+          <p-error
+            [error]="this.email.hasError('required') && this.email.dirty"
+            [message]="'E-mail é obrigatório.'"></p-error>
+          <p-error
+            [error]="this.email.hasError('email') || this.email.hasError('pattern')"
+            [message]="'Inseira um e-mail válido.'"></p-error>
+        </div>
+
+        <div class="form-group col-12 field">
+          <div class="row">
+            <div class="col-6">
+              <label class="title" for="password">
+                <p-field-required [field]="'Senha'" [error]="(this.password.invalid && this.password.dirty) || (form.errors?.['passwordMismatch'] && this.passwordConfirmation.dirty )"/>
+              </label>
+              <input
+                id="password" formControlName="password" pInputText
+                type="password" class="form-control" autocomplete="off" minlength="6" maxlength="20"
+                [ngClass]="{'ng-invalid ng-dirty': this.password.invalid}"/>
+              <p-error
+                [error]="this.password.hasError('required') && this.password.dirty"
+                [message]="'Senha é obrigatório.'"></p-error>
+              <p-error
+                [error]="this.password.hasError('minlength') && this.password.dirty"
+                [message]="'Senha deve conter no mínimo 6 caracteres.'"></p-error>
+              <p-error
+                [error]="this.password.hasError('maxlength') && this.password.dirty"
+                [message]="'Senha deve conter no máximo 20 caracteres.'"></p-error>
+
+            </div>
+            <div class="col-6">
+              <label class="title" for="passwordConfirmation">
+                <p-field-required [field]="'Confirme a Senha'" [error]="(this.passwordConfirmation.invalid || form.errors?.['passwordMismatch']) && this.passwordConfirmation.dirty"/>
+              </label>
+              <input
+                id="passwordConfirmation" formControlName="passwordConfirmation" pInputText
+                type="password" class="form-control" autocomplete="off" minlength="6" maxlength="20"
+                [ngClass]="{'ng-invalid ng-dirty': this.passwordConfirmation.invalid || form.errors?.['passwordMismatch']}"/>
+              <p-error
+                [error]="this.passwordConfirmation.hasError('required') && this.passwordConfirmation.dirty"
+                [message]="'Confirmação de senha é obrigatório.'"></p-error>
+              <p-error
+                [error]="this.passwordConfirmation.hasError('minlength') && this.passwordConfirmation.dirty"
+                [message]="'Confirmação de senha deve conter no mínimo 6 caracteres.'"></p-error>
+              <p-error
+                [error]="this.passwordConfirmation.hasError('maxlength') && this.passwordConfirmation.dirty"
+                [message]="'Confirmação de senha deve conter no máximo 20 caracteres.'"></p-error>
+              <p-error
+                [error]="form.errors?.['passwordMismatch'] && this.passwordConfirmation.dirty"
+                [message]="'As senhas não são iguais.'"></p-error>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p-button label="Salvar" icon="pi pi-save" type="submit" styleClass="p-button-success me-2" [disabled]="form.invalid"></p-button>
+      <p-button label="Voltar" icon="fa fa-reply" type="button" styleClass="p-button-outlined p-button-secondary me-2" (click)="functions.back()"></p-button>
+
+    </form>
+  </div>
+</div>
