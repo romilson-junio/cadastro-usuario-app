@@ -4,7 +4,7 @@
 - [Node](https://nodejs.org/en)
   - Versão utilizada durante o desenvolvimento: 20.10.0
 
-## Development server
+## Running the application
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
