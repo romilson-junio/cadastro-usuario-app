@@ -1,4 +1,4 @@
-import { FormGroup, ValidatorFn, ValidationErrors, AbstractControl } from '@angular/forms';
+import { ValidationErrors, AbstractControl } from '@angular/forms';
 
 export function passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
   const password = control.get('password');
