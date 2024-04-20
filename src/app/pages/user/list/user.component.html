@@ -3,6 +3,7 @@
     <div class="card">
       <p-confirmDialog
         [style]="{width: '30vw'}"
+        [id]="'confirmation'"
         acceptLabel="Sim"
         acceptButtonStyleClass="bg-student"
         rejectLabel="Não"
@@ -39,10 +40,10 @@
             <td>{{ user.email }}</td>
             <td>
               <span>
-                <p-button pTooltip="Editar" tooltipPosition="left"
+                <p-button pTooltip="Editar" tooltipPosition="right"
                   *ngIf="!user.editing" (click)="editing(user)"
                   icon="pi pi-user-edit" styleClass="me-2 p-button-rounded p-button-secondary p-button-outlined"></p-button>
-                <p-button pTooltip="Cancelar" tooltipPosition="left"
+                <p-button pTooltip="Cancelar" tooltipPosition="right"
                   *ngIf="user.editing" (click)="canceling(user)"
                   icon="fa fa-ban" styleClass="me-2 p-button-rounded p-button-warning p-button-outlined"></p-button>
                 <p-button pTooltip="Salvar" tooltipPosition="right"
@@ -58,7 +59,7 @@
 
         <ng-template pTemplate="emptymessage">
           <tr>
-              <td class="text-center h1" colspan="4">Nenhum usuário encontrado!</td>
+              <td class="text-center h4" colspan="4">Nenhum usuário encontrado!</td>
           </tr>
         </ng-template>
 

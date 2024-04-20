@@ -11,8 +11,6 @@ import { ButtonModule } from 'primeng/button';
 import { UserModule } from './pages/user/user.module';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { PErrorComponent } from './shared/components/p-error/p-error.component';
-import { PFieldRequiredComponent } from './shared/components/p-field-required/p-field-required.component';
 
 @NgModule({
   declarations: [

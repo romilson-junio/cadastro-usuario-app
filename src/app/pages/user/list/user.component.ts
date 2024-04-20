@@ -11,7 +11,7 @@ import { UserService } from 'src/app/shared/services/user/user.service';
 })
 export class UserComponent implements OnInit {
 
-  private nameOrigin: string = '';
+  private auxName: string = '';
   users!: User[];
 
   constructor(
@@ -24,13 +24,17 @@ export class UserComponent implements OnInit {
     this.list();
   }
 
+  set nameUserDB(name: string) {
+    this.auxName = name;
+  }
+
   valueChange(user: User): boolean {
-    return user.name?.trim() != this.nameOrigin?.trim();
+    return user.name?.trim() != this.auxName?.trim();
   }
 
   editing(user: User) {
     user.editing = !user.editing;
-    this.nameOrigin = user.name;
+    this.auxName = user.name;
     if (user.editing) {
       setTimeout(() => {
         const inputField = document.getElementById(`input_${user.id}`) as HTMLInputElement;
@@ -50,7 +54,8 @@ export class UserComponent implements OnInit {
 
   canceling(user: User) {
     user.editing = false;
-    user.name = this.nameOrigin;
+    user.name = this.auxName;
+    this.auxName = '';
   }
 
   list() {
