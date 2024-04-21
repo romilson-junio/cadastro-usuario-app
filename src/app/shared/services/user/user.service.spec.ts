@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { UserService } from './user.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { User } from '../../domains/user/user';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -15,17 +15,14 @@ const userMock: User = { id: 1, name: "Teste 1", email: "teste1@gmail.com" }
 describe('UserService', () => {
   let service: UserService;
   let httpClient: HttpClient;
-  let http: HttpTestingController;
 
   beforeEach(() => {
-
 
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [UserService]
     });
     service = TestBed.inject(UserService);
-    http = TestBed.inject(HttpTestingController);
     httpClient = TestBed.inject(HttpClient);
 
   });

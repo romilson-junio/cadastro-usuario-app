@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserServiceInterface } from './user-service.inteface';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../../domains/user/user';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/enviroments/environment';

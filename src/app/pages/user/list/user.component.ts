@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { CellEditor } from 'primeng/table';
 import { User } from 'src/app/shared/domains/user/user';
 import { UserService } from 'src/app/shared/services/user/user.service';
 
