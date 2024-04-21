@@ -1,4 +1,4 @@
-# CadastroUsuarioApp
+# Cadastro Usuario App
 
 ## Prerequisites
 - [Node](https://nodejs.org/en)
